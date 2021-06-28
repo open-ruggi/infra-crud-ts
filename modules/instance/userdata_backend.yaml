@@ -1,0 +1,15 @@
+#cloud-config
+# https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+package_update: true
+packages:
+  - docker.io
+write_files:
+  - path: /root/.env
+    content: |
+      PORT=7000
+      DB_PASSWORD=fred
+      DB_HOST=${ip_address_db}
+      DB_USER=postgres
+runcmd:
+  - cd /root
+  - docker run -d --env-file .env -p 7000:7000 ruggi/crud-ts
