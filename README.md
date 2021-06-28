@@ -54,7 +54,7 @@ Requirements  [aws CLI](https://aws.amazon.com/es/cli/)
 
     .
     ├── images                    # Documentation files (alternatively `doc`)
-    ├── modules                   # módulos de despliegue (networking, key , instance)
+    ├── modules                   # módulos de despliegue (network, key , instance)
     ├── script                    # scripts para el despliegue de DB
     ├── main.tf                   # file de declaración de módulos
     ├── provider.tf               # file de declaración de entorno aws
