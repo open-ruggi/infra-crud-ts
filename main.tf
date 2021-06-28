@@ -1,4 +1,4 @@
-module "networking" {
+module "network" {
   source           = "./modules/vpc"
   cidr_block       = "10.0.0.0/16"
   environment_name = "codeChallenge"
@@ -14,8 +14,11 @@ module "ssh-key" {
 module "instance" {
   source     = "./modules/instance"
   environment  = "codeChallenge"
-  vpc_id = module.networking.vpc_id
-  public_subnets= module.networking.aws_subnet_public
-  private_subnets= module.networking.aws_subnet_private
+  vpc_id = module.network.vpc_id
+  public_subnets= module.network.aws_subnet_public
+  private_subnets= module.network.aws_subnet_private
   key_name   = module.ssh-key.key_name
+  depends_on = [
+    module.network.aws_nat_gateway
+  ]
 }
