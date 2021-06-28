@@ -26,6 +26,7 @@ Puntos a mejorar
 * Servidor web en la zona privada 
 * Levantar un ngnix quien recepcione las solicitudes y redireccione al servidor web de la zona privada
 * Usar Variables para datos sensibles
+* Usar como variable el repositorio del backend
 
 ---
 
